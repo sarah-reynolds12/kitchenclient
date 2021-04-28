@@ -8,6 +8,7 @@ interface SignUpProps {
    name?: any;
    value?: any;
    updateToken: Function;
+   //toggle: Function;
 }
 interface SignUpState {
    username : string,
@@ -81,6 +82,7 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
             (response) => response.json()
         ).then((data) => {
             this.props.updateToken(data.sessionToken)
+            //this.props.toggle();
             console.log(data.sessionToken);
             console.log(data);
         })
@@ -96,11 +98,13 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
               <div className='form-wrapper'>
                  <h2>Sign Up</h2>
                  <form onSubmit={this.handleSubmit} noValidate >
+                    <br />
                     <div className='userName'>
-                       <label htmlFor="userName">Username</label>
+                       <label htmlFor="userName">Kitchen Name</label>
                        <input type='text' name='userName' onChange= {this.handleChange}/>
                        {errors.username.length > 0 &&  <span style={{color: "red"}}>{errors.username}</span>}
                     </div>
+                    <br />
                     <div className='email'>
                        <label htmlFor="email">Email</label>
                        <input type='email' name='email' onChange={this.handleChange}/>
@@ -112,8 +116,13 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
                        {errors.password.length > 0 &&  <span style={{color: "red"}}>{errors.password}</span>}
                     </div>             
                     <div className='role'>
-                       <label htmlFor="role">Role</label>
-                       <input type='role' name='role' onChange={this.handleChange}/>
+                       <label htmlFor="role">Role: </label> 
+                       <select id="roles">
+                          <option value="">Select</option>
+                          <option value="shopper">Shopper</option>
+                          <option value="householdmember">Household Member</option>
+                       </select>
+                       {/* <input type='role' name='role' onChange={this.handleChange}/> */}
                        {/* {errors.role.length > 0 && <span style} */}
                     </div>              
                     <div className='submit'>

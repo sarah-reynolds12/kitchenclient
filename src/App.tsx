@@ -3,7 +3,9 @@ import './App.css';
 // import  { SignUp } from "./auth/SignUp";
 // import { Login } from "./auth/Login"
 //import { Row } from "reactstrap";
-import { Auth } from "./auth/Auth";
+//import  Auth  from "./auth/Auth";
+//import FoodItem from "./components/cards/FoodItem";
+import Kitchenbuild from "./components/cards/Kitchenbuild";
 
 export interface AppProps {
 
@@ -30,8 +32,9 @@ updateToken = (token: string) => {
      <div>
      {/* <SignUp updateToken = {this.updateToken} />
      <Login updateToken = {this.updateToken}/> */}
-
-     <Auth updateToken = {this.updateToken} />
+{/* <FoodItem updateToken = {this.updateToken}/> */}
+<Kitchenbuild updateToken = {this.updateToken} />
+    {/* <Auth updateToken = {this.updateToken} /> */}
      </div>
    );
  }

@@ -107,7 +107,7 @@ export class Login extends React.Component <LoginProps, LoginState> {
                        <input type='role' name='role' onChange={this.handleChange}/>
                     </div>               */}
                     <div className='submit'>
-                       <button>Sign Up</button>
+                       <button>Log In</button>
                     </div>
                </form>
            </div>
