@@ -99,30 +99,29 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
                  <h2>Sign Up</h2>
                  <form onSubmit={this.handleSubmit} noValidate >
                     <br />
-                    <div className='userName'>
-                       <label htmlFor="userName">Kitchen Name</label>
-                       <input type='text' name='userName' onChange= {this.handleChange}/>
+                    <div className='username'>
+                       <label htmlFor="username">Kitchen Name</label>
+                       <input type='text' name='username' onChange={(e) => this.setState({username: e.target.value})}/>
                        {errors.username.length > 0 &&  <span style={{color: "red"}}>{errors.username}</span>}
                     </div>
                     <br />
                     <div className='email'>
                        <label htmlFor="email">Email</label>
-                       <input type='email' name='email' onChange={this.handleChange}/>
+                       <input type='email' name='email' onChange={(e) => this.setState({email: e.target.value})}/>
                        {errors.email.length > 0 &&  <span style={{color: "red"}}>{errors.email}</span>}
                     </div>
                     <div className='password'>
                        <label htmlFor="password">Password</label>
-                       <input type='password' name='password' onChange={this.handleChange}/>
+                       <input type='password' name='password' onChange={(e) => this.setState({password: e.target.value})}/>
                        {errors.password.length > 0 &&  <span style={{color: "red"}}>{errors.password}</span>}
                     </div>             
                     <div className='role'>
                        <label htmlFor="role">Role: </label> 
-                       <select id="roles">
+                       <select id="roles" onChange={(e) => this.setState({role: e.target.value})}>
                           <option value="">Select</option>
                           <option value="shopper">Shopper</option>
                           <option value="householdmember">Household Member</option>
                        </select>
-                       {/* <input type='role' name='role' onChange={this.handleChange}/> */}
                        {/* {errors.role.length > 0 && <span style} */}
                     </div>              
                     <div className='submit'>

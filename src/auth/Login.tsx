@@ -94,12 +94,12 @@ export class Login extends React.Component <LoginProps, LoginState> {
                     </div> */}
                     <div className='email'>
                        <label htmlFor="email">Email</label>
-                       <input type='email' name='email' onChange={this.handleChange}/>
+                       <input type='email' name='email' onChange={(e) => this.setState({email: e.target.value})}/>
                        {errors.email.length > 0 &&  <span style={{color: "red"}}>{errors.email}</span>}
                     </div>
                     <div className='password'>
                        <label htmlFor="password">Password</label>
-                       <input type='password' name='password' onChange={this.handleChange}/>
+                       <input type='password' name='password' onChange={(e) => this.setState({password: e.target.value})}/>
                        {errors.password.length > 0 &&  <span style={{color: "red"}}>{errors.password}</span>}
                     </div>             
                     {/* <div className='role'>

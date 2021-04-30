@@ -2,7 +2,8 @@ import React from 'react';
 import './FoodItem.css';
 
 export interface FoodItemProps {
-    updateToken: Function;
+    //updateToken: Function;
+    token: string
 }
  
 export interface FoodItemState {
@@ -72,6 +73,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
 
     handleSubmit = (event : any) => {
         event.preventDefault();
+        let token = this.props.token ? this.props.token : localStorage.getItem("token");
         let validity = true;
         Object.values(this.state.errors).forEach(
           (val) => val.length > 0 && (validity = false)
@@ -83,20 +85,27 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
             method: 'POST',
             body: JSON.stringify({fooditem: this.state.fooditem, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory, brandname: this.state.brandname, photo: this.state.photo, kitchenarea: this.state.kitchenarea}),
             headers: new Headers({
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: token ? token : ''
             })
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken)
-            console.log(data.sessionToken);
+         this.setState({fooditem: ""});
+         this.setState({itemamount: ""});
+         this.setState({foodcategory: ""});
+         this.setState({brandname: ""});
+         this.setState({photo: ""});
+         this.setState({kitchenarea: ""});
+
+           // this.props.updateToken(data.sessionToken)
+           // console.log(data.sessionToken);
             console.log(data);
         })
     }else {
            console.log("You cannot create a food item.")
         }
-      
-        }
+      }
     
     
     render() { 
@@ -108,18 +117,21 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
               <br />
               <div className='foodItem'>
                  <label htmlFor="foodItem">Food Item</label>
-                 <input type='text' name='foodItem' onChange= {this.handleChange}/>
+                 <input type='text' name='foodItem' onChange={(e) => this.setState({fooditem: e.target.value})}
+/>
                  {errors.fooditem.length > 0 &&  <span style={{color: "red"}}>{errors.fooditem}</span>}
               </div>
               <br />
               <div className='brandname'>
                  <label htmlFor="brandname">Brand Name</label>
-                 <input type='text' name='brandname' onChange= {this.handleChange}/>
+                 <input type='text' name='brandname' onChange={(e) => this.setState({brandname: e.target.value})}
+/>
                  {/* {errors.fooditem.length > 0 &&  <span style={{color: "red"}}>{errors.fooditem}</span>} */}
               </div>
               <div className='itemamount'>
               <label htmlFor="itemamount">Item Amount: </label> 
-                 <select id="itemamount">
+                 <select id="itemamount" onChange={(e) => this.setState({itemamount: e.target.value})}
+>
                     <option value="">Select</option>
                     <option value="full">Full</option>
                     <option value="half">Half</option>
@@ -128,7 +140,8 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
               </div>
               <div className='foodcategory'>
                  <label htmlFor="foodcategory">Food Category</label>
-                 <select id="ifoodcategory">
+                 <select id="foodcategory" onChange={(e) => this.setState({foodcategory: e.target.value})}
+>
                     <option value="">Select</option>
                     <option value="meat">Meat</option>
                     <option value="dairy">Dairy</option>
@@ -141,7 +154,8 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
               </div>             
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Where does it go: </label> 
-                 <select id="Kitchen Area">
+                 <select id="Kitchen Area" onChange={(e) => this.setState({kitchenarea: e.target.value})}
+>
                     <option value="">Select</option>
                     <option value="pantry">Pantry</option>
                     <option value="fridge">Fridge</option>

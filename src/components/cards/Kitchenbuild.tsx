@@ -2,7 +2,8 @@ import React from 'react';
 import './FoodItem.css';
 
 export interface KitchenProps {
-    updateToken: Function;
+  // updateToken: Function;
+    token: string
 }
  
 export interface KitchenState {
@@ -43,6 +44,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
     
     handleSubmit = (event : any) => {
         event.preventDefault();
+        let token = this.props.token ? this.props.token : localStorage.getItem("token");
         let validity = true;
         Object.values(this.state.errors).forEach(
           (val) => val.length > 0 && (validity = false)
@@ -50,17 +52,19 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
         if(validity === true){
            console.log("Created Successfully!");
         
-        fetch(`http://localhost:3000/kitchenarea/create`, {
+        fetch(`http://localhost:3000/kitchen/create`, {
             method: 'POST',
             body: JSON.stringify({kitchenarea: this.state.kitchenarea}),
             headers: new Headers({
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: token ? token : ''
             })
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken)
-            console.log(data.sessionToken);
+            // this.props.updateToken(data.sessionToken)
+            // console.log(data.sessionToken);
+            this.setState({kitchenarea: ""});
             console.log(data);
         })
     }else {
@@ -78,7 +82,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
               <br />
               <div className='kitchenarea'>
               <label htmlFor="kitchenarea">Kitchen Area: </label> 
-                 <select id="kitchenarea">
+                 <select id="kitchenarea" onChange={(e) => this.setState({kitchenarea: e.target.value})}>
                     <option value="">Select</option>
                     <option value="pantry">Pantry</option>
                     <option value="fridge">Fridge</option>
@@ -90,7 +94,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
               <br /><br />
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Add Another Kitchen Area: </label> 
-                 <select id="kitchenarea">
+                 <select id="kitchenarea" onChange={(e) => this.setState({kitchenarea: e.target.value})}>
                     <option value="">Select</option>
                     <option value="pantry">Pantry</option>
                     <option value="fridge">Fridge</option>
@@ -101,7 +105,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
               <br /><br />
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Another Kitchen Area: </label> 
-                 <select id="kitchenarea">
+                 <select id="kitchenarea" onChange={(e) => this.setState({kitchenarea: e.target.value})}>
                     <option value="">Select</option>
                     <option value="pantry">Pantry</option>
                     <option value="fridge">Fridge</option>
@@ -112,7 +116,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
               <br /><br />        
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Another Kitchen Area: </label> 
-                 <select id="kitchenarea">
+                 <select id="kitchenarea" onChange={(e) => this.setState({kitchenarea: e.target.value})}>
                     <option value="">Select</option>
                     <option value="pantry">Pantry</option>
                     <option value="fridge">Fridge</option>

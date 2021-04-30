@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 //import { Row } from "reactstrap";
 import  Auth  from "./auth/Auth";
-//import FoodItem from "./components/cards/FoodItem";
-//import Kitchenbuild from "./components/cards/Kitchenbuild";
-import MainPage from "./components/MainPage";
+import FoodItem from "./components/cards/FoodItem";
+import Kitchenbuild from "./components/cards/Kitchenbuild";
+//import MainPage from "./components/MainPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 export interface AppProps {
@@ -24,10 +24,16 @@ class App extends React.Component<AppProps, AppState> {
 
   componentDidMount() {
     let token = localStorage.getItem('token')
+    let role = localStorage.getItem('role')
     if (token){
       this.setState({ 
         token: token
       })
+    }
+      if (role){
+        this.setState({ 
+          role: role
+        })
     }
   }
    
@@ -46,20 +52,20 @@ updateRole = (role : string ) => {
   })
 }
 
-protectedViews = () => {
-  return localStorage.getItem('token') ? (
-    <MainPage />
-  ) : (
-    <Auth updateToken = {this.updateToken} />
-  )
-}
+// protectedViews = () => {
+//   return localStorage.getItem('token') ? (
+//     <MainPage />
+//   ) : (
+//     <Auth updateToken = {this.updateToken} />
+//   )
+// }
 
-testViews() {
-  debugger
+protectedViews() {
+  
   if(this.state.role === "Shopper" && this.state.token) {
     return <Redirect to = "/kitchen" />
   } else if (this.state.role === "Household Member" && this.state.token) {
-    return <Redirect to = "/kitchen" />
+    return <Redirect to = "/fooditem" />
   } else {
     return  <Auth updateToken = {this.updateToken} />
   }
@@ -69,25 +75,16 @@ testViews() {
    return (
      <div>
        <Switch>
-         <Route exact path = "/user">
-           {this.testViews()}
-           {/* {this.state.role === "Shopper" && this.state.token ? (
-             <Redirect to = "/kitchen" />
-           ) : (this.state.role === "Household Member" && this.state.token) ? 
-            <Redirect to = "/kitchen" /> : (           
-             <Auth updateToken = {this.updateToken} />
-           )} */}
+         <Route exact path = "/">
+           {this.protectedViews()}
+          
          </Route>
-         <Route exact path ="/kitchen" component= {Kitchen}></Route>
-    {/* <MainPage updateToken = {this.updateToken} /> */}
-{/* <FoodItem updateToken = {this.updateToken}/> */}
-{/* <Kitchenbuild updateToken = {this.updateToken} /> */}
-    {/* <Auth updateToken = {this.updateToken} /> */}
+         <Route exact path ="/kitchen" >{this.state.token ? <Kitchenbuild token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
+         <Route exact path ="/fooditem">{this.state.token ? <FoodItem token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
     </Switch>
-    {/* {this.protectedViews()} */}
      </div>
    );
- }
+  }
 }
 
 export default App;
