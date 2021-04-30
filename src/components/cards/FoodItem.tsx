@@ -11,12 +11,14 @@ export interface FoodItemState {
     foodcategory: string, 
     brandname: string, 
     photo: string,
+    kitchenarea: string,
     errors: {
         fooditem: string, 
         itemamount: string, 
         foodcategory: string,
         brandname: string,
         photo: string,
+        kitchenarea: string,
     }
 }
  
@@ -29,12 +31,14 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
             foodcategory: '',
             brandname: '',
             photo: '',
+            kitchenarea: '',
             errors: {
                 fooditem: '',
                 itemamount: '',
                 foodcategory: '',
                 brandname: '',
                 photo: '',
+                kitchenarea: '',
             }
         }
         this.state = initialState;
@@ -56,6 +60,9 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
             case 'foodcategory': 
             errors.foodcategory = value.length === 0 ? 'Must choose a category': "";
             break;
+            case 'kitchenarea':
+                errors.kitchenarea = value.length === 0 ? 'Must choose an area for this item' : '';
+                break;
             default:
             break;
         }
@@ -74,7 +81,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         
         fetch(`http://localhost:3000/fooditem/create`, {
             method: 'POST',
-            body: JSON.stringify({fooditem: this.state.fooditem, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory, brandname: this.state.brandname, photo: this.state.photo}),
+            body: JSON.stringify({fooditem: this.state.fooditem, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory, brandname: this.state.brandname, photo: this.state.photo, kitchenarea: this.state.kitchenarea}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })

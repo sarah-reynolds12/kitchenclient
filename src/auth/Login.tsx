@@ -71,7 +71,7 @@ export class Login extends React.Component <LoginProps, LoginState> {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken)
+            this.props.updateToken(data.sessionToken, data.role)
             console.log(data.sessionToken);
             console.log(data);
         })

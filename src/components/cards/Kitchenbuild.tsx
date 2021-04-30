@@ -72,7 +72,8 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
         const {errors } = this.state
         return ( <div className='wrapper'>
         <div className='form-wrapper'>
-           <h2>Create Kitchen</h2>
+           <h2>Build Your Kitchen</h2>
+           <p>Add the areas that you would like to include in your kitchen</p>
            <form onSubmit={this.handleSubmit} noValidate >
               <br />
               <div className='kitchenarea'>
@@ -86,6 +87,18 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
                     </select>
                  {errors.kitchenarea.length > 0 &&  <span style={{color: "red"}}>{errors.kitchenarea}</span>}
               </div>
+              <br /><br />
+              <div className='kitchenarea'>
+                 <label htmlFor="kitchenarea">Add Another Kitchen Area: </label> 
+                 <select id="kitchenarea">
+                    <option value="">Select</option>
+                    <option value="pantry">Pantry</option>
+                    <option value="fridge">Fridge</option>
+                    <option value="freezer">Freezer</option>
+                    <option value="spicerack">Spices</option>
+                 </select>
+              </div>      
+              <br /><br />
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Another Kitchen Area: </label> 
                  <select id="kitchenarea">
@@ -96,6 +109,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
                     <option value="spicerack">Spices</option>
                  </select>
               </div>      
+              <br /><br />        
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Another Kitchen Area: </label> 
                  <select id="kitchenarea">
@@ -105,17 +119,8 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
                     <option value="freezer">Freezer</option>
                     <option value="spicerack">Spices</option>
                  </select>
-              </div>              
-              <div className='kitchenarea'>
-                 <label htmlFor="kitchenarea">Another Kitchen Area: </label> 
-                 <select id="kitchenarea">
-                    <option value="">Select</option>
-                    <option value="pantry">Pantry</option>
-                    <option value="fridge">Fridge</option>
-                    <option value="freezer">Freezer</option>
-                    <option value="spicerack">Spices</option>
-                 </select>
-              </div>                      
+              </div>      
+              <br /><br />                
               <div className='submit'>
                  <button>Create Kitchen</button>
               </div>

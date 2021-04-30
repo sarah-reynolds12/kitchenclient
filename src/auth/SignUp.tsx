@@ -81,7 +81,7 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
         }).then(
             (response) => response.json()
         ).then((data) => {
-            this.props.updateToken(data.sessionToken)
+            this.props.updateToken(data.sessionToken, data.role)
             //this.props.toggle();
             console.log(data.sessionToken);
             console.log(data);
