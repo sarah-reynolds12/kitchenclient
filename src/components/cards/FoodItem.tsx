@@ -80,7 +80,8 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         );
         if(validity === true){
            console.log("Created Successfully!");
-        
+
+
         fetch(`http://localhost:3000/fooditem/create`, {
             method: 'POST',
             body: JSON.stringify({fooditem: this.state.fooditem, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory, brandname: this.state.brandname, photo: this.state.photo, kitchenarea: this.state.kitchenarea}),

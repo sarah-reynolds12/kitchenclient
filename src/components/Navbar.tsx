@@ -1,4 +1,4 @@
-import {  } from "module";
+import * as React from 'react';
 // import React from "react";
 //  import {
 //   Collapse,
@@ -24,26 +24,25 @@ import {  } from "module";
 // import { Fridge } from "./Fridge";
 // import { Freezer } from "./Freezer";
 
-// export interface NavbarProps {
+export interface NavbarProps {
     
-// }
+}
  
-// export interface NavbarState {
+export interface NavbarState {
     
-// }
+}
  
-// class Navbar extends React.Component<NavbarProps, NavbarState> {
-//     constructor(props: NavbarProps) {
-//         super(props);
-//         this.state = { :  };
-//     }
-//     render() { 
-//         return ( 
-//             <Navbar>
-
-//             </Navbar>
-//          );
-//     }
-// }
+class Navbar extends React.Component<NavbarProps, NavbarState> {
+    constructor(props: NavbarProps) {
+        super(props);
+        this.state = {  };
+    }
+    render() { 
+        return ( 
+           // <Navbar>            </Navbar>
+           <div>Hello from Navbar</div>
+         );
+    }
+}
  
-// export default Navbar;
+export default Navbar;

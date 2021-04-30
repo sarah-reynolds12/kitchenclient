@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 //import { Row } from "reactstrap";
 import  Auth  from "./auth/Auth";
-import FoodItem from "./components/cards/FoodItem";
-import Kitchenbuild from "./components/cards/Kitchenbuild";
-//import MainPage from "./components/MainPage";
-import { Route, Switch, Redirect } from "react-router-dom";
+// import FoodItem from "./components/cards/FoodItem";
+// import Kitchenbuild from "./components/cards/Kitchenbuild";
+import MainPage from "./components/MainPage";
+//import { Route, Switch, Redirect } from "react-router-dom";
 
 export interface AppProps {
+  
 
 }
 
@@ -52,36 +53,37 @@ updateRole = (role : string ) => {
   })
 }
 
-// protectedViews = () => {
-//   return localStorage.getItem('token') ? (
-//     <MainPage />
-//   ) : (
-//     <Auth updateToken = {this.updateToken} />
-//   )
-// }
-
-protectedViews() {
-  
-  if(this.state.role === "Shopper" && this.state.token) {
-    return <Redirect to = "/kitchen" />
-  } else if (this.state.role === "Household Member" && this.state.token) {
-    return <Redirect to = "/fooditem" />
-  } else {
-    return  <Auth updateToken = {this.updateToken} />
-  }
+protectedViews = () => {
+  return localStorage.getItem('token') ? (
+    <MainPage token = {this.state.token} role = {this.state.role} />
+  ) : (
+    <Auth updateToken = {this.updateToken} />
+  )
 }
+
+// protectedViews() {
+  
+//   if(this.state.role === "Shopper" && this.state.token) {
+//     return <Redirect to = "/kitchen" />
+//   } else if (this.state.role === "Household Member" && this.state.token) {
+//     return <Redirect to = "/fooditem" />
+//   } else {
+//     return  <Auth updateToken = {this.updateToken} />
+//   }
+// }
 
  render() {
    return (
      <div>
-       <Switch>
+       {this.protectedViews()}
+       {/* <Switch>
          <Route exact path = "/">
            {this.protectedViews()}
           
          </Route>
          <Route exact path ="/kitchen" >{this.state.token ? <Kitchenbuild token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
          <Route exact path ="/fooditem">{this.state.token ? <FoodItem token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
-    </Switch>
+    </Switch> */}
      </div>
    );
   }
