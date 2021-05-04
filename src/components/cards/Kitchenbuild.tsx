@@ -43,7 +43,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
     }
     
     handleSubmit = (event : any) => {
-        event.preventDefault();
+      //  event.preventDefault();
         let token = this.props.token ? this.props.token : localStorage.getItem("token");
         let validity = true;
         Object.values(this.state.errors).forEach(
