@@ -1,48 +1,90 @@
 import * as React from 'react';
-// import React from "react";
-//  import {
-//   Collapse,
-//   Navbar,
-//   NavbarToggler,
-//   NavbarBrand,
-//   Nav,
-//   NavItem,
-//   NavLink,
-//   UncontrolledDropdown,
-//   DropdownToggle,
-//   DropdownMenu,
-//   DropdownItem,
-//   NavbarText
-// } from 'reactstrap';
+import "./Navbar.css";
+ import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap';
 
 // import  Auth from "../auth/Auth";
 // import { Login } from "../auth/Login";
 // import { SignUp } from "../auth/SignUp";
 // import { Kitchen } from "./Kitchen";
-// import { Pantry } from "./Pantry";
-// import { Spicerack } from "./Spicerack";
-// import { Fridge } from "./Fridge";
-// import { Freezer } from "./Freezer";
+// import  Pantry  from "./kitchenareas/Pantry";
+// import { Spicerack } from "./kitchenareas/Spicerack";
+// import { Fridge } from "./kitchenareas/Fridge";
+// import { Freezer } from "./kitchenareas/Freezer";
 
-export interface NavbarProps {
+export interface SitebarProps {
     
 }
  
-export interface NavbarState {
+export interface SitebarState {
     
 }
  
-class Navbar extends React.Component<NavbarProps, NavbarState> {
-    constructor(props: NavbarProps) {
+class Sitebar extends React.Component<SitebarProps, SitebarState> {
+    constructor(props: SitebarProps) {
         super(props);
         this.state = {  };
     }
     render() { 
         return ( 
-           // <Navbar>            </Navbar>
-           <div>Hello from Navbar</div>
+            <div>
+            <Navbar color="light" light expand="md" >
+              <NavbarBrand href="/">Kitchen Inventory</NavbarBrand>
+              {/* <NavbarToggler onClick={this.toggle} /> */}
+              {/* <Collapse isOpen={isOpen} navbar> */}
+                <Nav className="mr-auto" navbar>
+                  <NavItem>
+                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Fridge.tsx">Fridge</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Freezer.tsx">Freezer</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Pantry/">Pantry</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Spices/">Spices</NavLink>
+                  </NavItem>
+                  {/* <NavItem>
+                    <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                  </NavItem> */}
+                  <UncontrolledDropdown nav inNavbar>
+                    <DropdownToggle nav caret>
+                      Kitchen
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <DropdownItem>
+                        Update Kitchen Areas
+                      </DropdownItem>
+                      <DropdownItem>
+                        Trash
+                      </DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem>
+                        Reset
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </Nav>
+                {/* <NavbarText>Simple Text</NavbarText> */}
+              {/* </Collapse> */}
+            </Navbar>
+          </div>
+           
          );
     }
 }
  
-export default Navbar;
+export default Sitebar;

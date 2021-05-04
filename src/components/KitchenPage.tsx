@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Card, CardTitle, Button, CardText } from "reactstrap";
 import Kitchenbuild from "./cards/Kitchenbuild";
 import FoodItem from "./cards/FoodItem";
 
@@ -16,13 +17,9 @@ class KitchenPage extends React.Component<KitchenPageProps, KitchenPageState> {
         this.state = {
             kitchendata : ''
          };
-    }
-
-    fetchKitchen = () => {
-        //event.preventDefault();
+    
   fetch(`http://localhost:3000/kitchen/get`, {
         method: 'GET',
-        body: JSON.stringify({kitchendata: this.state.kitchendata}),
         headers: new Headers({
             'Content-Type': 'application/json',
             Authorization : this.props.token
@@ -34,7 +31,7 @@ class KitchenPage extends React.Component<KitchenPageProps, KitchenPageState> {
             // this.props.updateToken(data.sessionToken)
             // console.log(data.sessionToken);
             this.setState({kitchendata: ""});
-            console.log(this.fetchKitchen);
+            //console.log(this.kitchendata);
         })
     } 
 //     else {
@@ -55,8 +52,16 @@ class KitchenPage extends React.Component<KitchenPageProps, KitchenPageState> {
     render() { 
         return (
             <div>
+                
                 {this.switchKitchen()}
-                Kitchen Page</div>
+                {/* <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+        <CardTitle tag="h5">Special Title Treatment</CardTitle>
+        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+        <Button>Button</Button>
+      </Card> */}
+                Kitchen Page
+                
+                </div>
           );
     }
 }

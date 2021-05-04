@@ -113,11 +113,11 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         const { errors } =this.state
         return ( <div className='wrapper'>
         <div className='form-wrapper'>
-           <h2>Kitchen Items</h2>
+           <h2>Food</h2>
            <form onSubmit={this.handleSubmit} noValidate >
               <br />
               <div className='foodItem'>
-                 <label htmlFor="foodItem">Food Item</label>
+                 <label htmlFor="foodItem">What food is it?</label>
                  <input type='text' name='foodItem' onChange={(e) => this.setState({fooditem: e.target.value})}
 />
                  {errors.fooditem.length > 0 &&  <span style={{color: "red"}}>{errors.fooditem}</span>}
@@ -166,7 +166,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                 
               </div>              
               <div className='submit'>
-                 <button>Kitchen Update</button>
+                 <button>Food Item Update</button>
               </div>
          </form>
      </div>
