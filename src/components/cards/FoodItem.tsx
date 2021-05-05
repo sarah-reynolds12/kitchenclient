@@ -11,14 +11,14 @@ export interface FoodItemState {
     itemamount: string, 
     foodcategory: string, 
     brandname: string, 
-    photo: string,
+    //photo: string,
     kitchenarea: string,
     errors: {
         fooditem: string, 
         itemamount: string, 
         foodcategory: string,
         brandname: string,
-        photo: string,
+        //photo: string,
         kitchenarea: string,
     }
 }
@@ -31,14 +31,12 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
             itemamount: '',
             foodcategory: '',
             brandname: '',
-            photo: '',
             kitchenarea: '',
             errors: {
                 fooditem: '',
                 itemamount: '',
                 foodcategory: '',
                 brandname: '',
-                photo: '',
                 kitchenarea: '',
             }
         }
@@ -53,10 +51,10 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         let errors = this.state.errors;
         switch (name) {
             case 'fooditem':
-                errors.fooditem = value.length === 0 ? 'Must enter food item': '';
+                errors.fooditem = value.length < 0 ? 'Must enter food item': '';
                 break;
             case 'itemamount':
-                errors.itemamount = value.length === 0 ? 'Must choose an amount': '';
+                errors.itemamount = value.length === null ? 'Must choose an amount': '';
                  break;
             case 'foodcategory': 
             errors.foodcategory = value.length === 0 ? 'Must choose a category': "";
@@ -84,7 +82,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
 
         fetch(`http://localhost:3000/fooditem/create`, {
             method: 'POST',
-            body: JSON.stringify({fooditem: this.state.fooditem, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory, brandname: this.state.brandname, photo: this.state.photo, kitchenarea: this.state.kitchenarea}),
+            body: JSON.stringify({fooditem: this.state.fooditem, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory, brandname: this.state.brandname, kitchenarea: this.state.kitchenarea}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 Authorization: token ? token : ''
@@ -96,7 +94,6 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
          this.setState({itemamount: ""});
          this.setState({foodcategory: ""});
          this.setState({brandname: ""});
-         this.setState({photo: ""});
          this.setState({kitchenarea: ""});
 
            // this.props.updateToken(data.sessionToken)
@@ -116,10 +113,9 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
            <h2>Food</h2>
            <form onSubmit={this.handleSubmit} noValidate >
               <br />
-              <div className='foodItem'>
-                 <label htmlFor="foodItem">What food is it?</label>
-                 <input type='text' name='foodItem' onChange={(e) => this.setState({fooditem: e.target.value})}
-/>
+              <div className='fooditem'>
+                 <label htmlFor="fooditem">What food is it?</label>
+                 <input type='text' name='fooditem' onChange={(e) => this.setState({fooditem: e.target.value})}/>
                  {errors.fooditem.length > 0 &&  <span style={{color: "red"}}>{errors.fooditem}</span>}
               </div>
               <br />
@@ -155,18 +151,18 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
               </div>             
               <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Where does it go: </label> 
-                 <select id="Kitchen Area" onChange={(e) => this.setState({kitchenarea: e.target.value})}
+                 <select id="kitchenarea" onChange={(e) => this.setState({kitchenarea: e.target.value})}
 >
                     <option value="">Select</option>
                     <option value="pantry">Pantry</option>
                     <option value="fridge">Fridge</option>
                     <option value="freezer">Freezer</option>
-                    <option value="spicerack">Spices</option>
+                    <option value="spices">Spices</option>
                  </select>
                 
               </div>              
               <div className='submit'>
-                 <button>Food Item Update</button>
+                 <button >Create Food for Kitchen</button>
               </div>
          </form>
      </div>

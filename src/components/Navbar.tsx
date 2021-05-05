@@ -41,44 +41,49 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
         return ( 
             <div>
             <Navbar color="light" light expand="md" >
-              <NavbarBrand href="/">Kitchen Inventory</NavbarBrand>
+              <NavbarBrand href="/fooditem/get">Kitchen Inventory</NavbarBrand>
               {/* <NavbarToggler onClick={this.toggle} /> */}
               {/* <Collapse isOpen={isOpen} navbar> */}
                 <Nav className="mr-auto" navbar>
-                  <NavItem>
-                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Fridge.tsx">Fridge</NavLink>
+                <NavItem>
+                    <NavLink href="/fooditem/create">Add Food Item</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Freezer.tsx">Freezer</NavLink>
+                    <NavLink href="/fooditem/:fridge">Fridge</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Pantry/">Pantry</NavLink>
+                    <NavLink href= "/fooditem/:freezer">Freezer</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/kitchen-inventory/client/my-app/src/components/kitchenareas/Spices/">Spices</NavLink>
+                    <NavLink href="/fooditem/:pantry">Pantry</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/fooditem/:spices">Spices</NavLink>
                   </NavItem>
                   {/* <NavItem>
                     <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
                   </NavItem> */}
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Kitchen
+                      Item Amounts
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem>
-                        Update Kitchen Areas
+                      <NavLink href="/fooditem/:full">Full</NavLink>
                       </DropdownItem>
                       <DropdownItem>
-                        Trash
+                      <NavLink href="/fooditem/:half">Half</NavLink>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
-                        Reset
+                      <NavLink href="/fooditem/:replace">Replace</NavLink>
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </Nav>
-                {/* <NavbarText>Simple Text</NavbarText> */}
+                <NavbarText>
+                <NavLink href="/kitchen/get">Account</NavLink>
+                </NavbarText>
               {/* </Collapse> */}
             </Navbar>
           </div>

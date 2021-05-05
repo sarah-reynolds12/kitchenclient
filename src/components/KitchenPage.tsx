@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Card, CardTitle, Button, CardText } from "reactstrap";
+//import { Card, CardTitle, Button, CardText } from "reactstrap";
 import Kitchenbuild from "./cards/Kitchenbuild";
 import FoodItem from "./cards/FoodItem";
 import { IKitchen } from "./UI/Interface"
+import Kitchen from "./kitchenareas/Kitchen"
 
 export interface KitchenPageProps {
     token: string
@@ -33,7 +34,7 @@ class KitchenPage extends React.Component<KitchenPageProps, KitchenPageState> {
               ).then((data : IKitchen[]) => {
                   console.log(data)
                   this.setState({kitchendata: data});
-                  //console.log(this.kitchendata);
+                  
               })
 
     }
@@ -43,13 +44,8 @@ class KitchenPage extends React.Component<KitchenPageProps, KitchenPageState> {
         return (
             <div>
                 
-            {this.state.kitchendata === null ? (<Kitchenbuild token = {this.props.token} />) : (<FoodItem token = {this.props.token} />)}
-                {/* {this.switchKitchen()} */}
-                {/* <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-        <CardTitle tag="h5">Special Title Treatment</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button>Button</Button>
-      </Card> */}
+            {this.state.kitchendata === null ? (<Kitchenbuild token = {this.props.token} />) : (<Kitchen token = {this.props.token} />)}
+                                
                 Kitchen Page
                 
                 </div>

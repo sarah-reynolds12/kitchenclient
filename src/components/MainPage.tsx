@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import FoodItem from "./cards/FoodItem";
 //import Kitchenbuild from "./cards/Kitchenbuild";
 import KitchenPage from "./KitchenPage";
+import Kitchen from "./kitchenareas/Kitchen"
 
 export interface MainPageProps {
     token : string
@@ -23,7 +24,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         if (localStorage.getItem('role') === "shopper" ) {
             return <KitchenPage token = {this.props.token} />
         } else if (localStorage.getItem('role') === "householdmember") {
-            return  <FoodItem token = {this.props.token} />
+            return  <Kitchen token = {this.props.token} />
         } 
     }
 
