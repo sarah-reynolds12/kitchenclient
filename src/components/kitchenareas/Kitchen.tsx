@@ -1,19 +1,21 @@
 import * as React from 'react';
+import FoodItemCard from "../cards/FoodItemCard";
+import {CardColumns} from "reactstrap";
+import { IFood } from "./KitchenAreaInterface";
 
 export interface KitchenProps {
-    token: string
+    //url: string;
+  token: string;
 }
  
 export interface KitchenState {
-    allfooddata: string
+    allFoodData: IFood[];
 }
  
 class Kitchen extends React.Component<KitchenProps, KitchenState> {
     constructor(props: KitchenProps) {
         super(props);
-        this.state = { 
-            allfooddata: ''
-         };
+        this.state = { allFoodData: [] };
     }
     componentDidMount = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem("token")
@@ -25,20 +27,21 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
           })
       }).then(
               (response) => response.json()
-          ).then((data) => {
+          ).then((data: IFood[]) => {
               console.log(data)
-              this.setState({allfooddata: data});
+              this.setState({allFoodData: data});
               //console.log(this.kitchendata);
-          })
+          });
 
 }
 
-
     render() { 
         return ( 
-        <div>
-           All Food Items Displayed
-        </div> );
+       <CardColumns>
+           {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard food= {food} key={index}/>))) : (<></>)
+           }
+       </CardColumns>
+        );
     }
 }
  

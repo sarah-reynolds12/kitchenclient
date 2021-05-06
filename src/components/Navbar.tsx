@@ -23,8 +23,10 @@ import "./Navbar.css";
 // import { Spicerack } from "./kitchenareas/Spicerack";
 // import { Fridge } from "./kitchenareas/Fridge";
 // import { Freezer } from "./kitchenareas/Freezer";
+import FoodItem from "./cards/FoodItem"
 
 export interface SitebarProps {
+    token: string
     
 }
  
@@ -46,7 +48,7 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
               {/* <Collapse isOpen={isOpen} navbar> */}
                 <Nav className="mr-auto" navbar>
                 <NavItem>
-                    <NavLink href="/fooditem/create">Add Food Item</NavLink>
+                    <NavLink href="/fooditem/create" > Add Food Item </NavLink>
                   </NavItem>
                   <NavItem>
                     <NavLink href="/fooditem/:fridge">Fridge</NavLink>

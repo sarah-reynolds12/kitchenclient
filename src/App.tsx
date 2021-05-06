@@ -6,6 +6,8 @@ import  Auth  from "./auth/Auth";
 // import Kitchenbuild from "./components/cards/Kitchenbuild";
 import MainPage from "./components/MainPage";
 //import { Route, Switch, Redirect } from "react-router-dom";
+import Kitchen from "./components/kitchenareas/Kitchen";
+//import FoodItemCard from "./components/cards/FoodItemCard";
 
 export interface AppProps {
   
@@ -76,6 +78,8 @@ protectedViews = () => {
    return (
      <div>
        {this.protectedViews()}
+       <Kitchen token = {this.state.token} />
+       {/* <FoodItemCard /> */}
        {/* <Switch>
          <Route exact path = "/">
            {this.protectedViews()}

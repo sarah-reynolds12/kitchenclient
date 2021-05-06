@@ -31,7 +31,7 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
     render() { 
         return ( 
             <div>
-                <Navbar />
+                <Navbar token = {this.props.token} />
                 {this.roleSwitch()}
                 {/* <FoodItem token = {this.props.token} />
                 <Kitchenbuild token = {this.props.token} /> */}
