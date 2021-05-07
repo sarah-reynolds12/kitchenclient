@@ -1,6 +1,7 @@
 import * as React from 'react';
 import "./Navbar.css";
  import {
+  Button,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -21,6 +22,8 @@ import FoodItem from "./cards/FoodItem"
 
 export interface SitebarProps {
     token: string
+  //  onClick: () => void,
+   // clickLogout: string
     
 }
  
@@ -89,6 +92,11 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
                 <NavbarText>
                 <NavLink to="/kitchen/get">Account</NavLink>
                 </NavbarText>
+                <NavItem>
+                    <Button>  Logout
+                    </Button>
+                    {/* onClick={this.props.onClick} */}
+                    </NavItem>
               {/* </Collapse> */}
             </Navbar>
           </div>

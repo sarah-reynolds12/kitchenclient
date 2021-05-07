@@ -12,7 +12,7 @@ import Category from "./components/kitchenareas/Categories";
 import Navbar from "./components/Navbar";
 
 export interface AppProps {
-  
+//onClick: () => void, 
 
 }
 
@@ -65,6 +65,11 @@ protectedViews = () => {
   )
 }
 
+clearToken = () => {
+  localStorage.clear();
+  this.setState({token: ''})
+}
+
 // protectedViews() {
   
 //   if(this.state.role === "Shopper" && this.state.token) {
@@ -79,7 +84,7 @@ protectedViews = () => {
  render() {
    return (
      <div>
-     
+     {/* need clickLogout? */}
        <Navbar token = {this.state.token} />
        <Switch>
          <Route exact path = "/">

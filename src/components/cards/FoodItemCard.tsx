@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IFood } from "./FoodItemInterface"
+import { IFood } from "./FoodItemInterface";
+//import Kitchen from "../kitchenareas/Kitchen";
 
 import {
     Card,
@@ -16,26 +17,30 @@ export interface FoodItemCardProps {
    token: string; 
     food: IFood;
 }
+
+// export interface FoodItemCardState {
+//     edit: string
+// }
  
  
 const FoodItemCard: React.SFC<FoodItemCardProps> = (props) => {
 //    const deleteFood = (food) => {
-//     fetch(`http://localhost:3000/fooditem/delete/:id`, {
+//     fetch(`http://localhost:3000/fooditem/delete/${food.id}`, {
 //             method: "DELETE",
 //             headers: new Headers ({
 //              'Content-Type': 'application/json',
-//                 Authorization: props.token
-//                // Authorization: token ? token : ''
+//                Authorization: props.token,
+//            //    Authorization: token ? token : ''
 //          })
 //         }).then(() => props.fetchFood()) 
-//        // .then((response) => response.json()).then((data) => {
-//           //  this.setState({edit: ''});
-//        // })
+//           .then((response) => response.json()).then((data) => {
+//            this.setState({edit: ''});
+//        })
 //     }
     
         return ( 
             <div>
-      <Card>
+      <Card> 
           <CardBody>
               {props.food.fooditem} : {props.food.brandname} 
               <br /><br />

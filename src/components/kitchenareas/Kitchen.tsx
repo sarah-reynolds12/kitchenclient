@@ -19,6 +19,7 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
     }
     componentDidMount = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem("token")
+       // const fetchFood = () => {
     fetch(`http://localhost:3000/fooditem/get`, {
           method: 'GET',
           headers: new Headers({
@@ -35,6 +36,10 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
 
 }
 
+// Kitchen.useEffect(() => {
+//     fetchFood();
+// }, [])
+
     render() { 
         return ( 
        <CardColumns>
@@ -44,5 +49,6 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
         );
     }
 }
+
  
 export default Kitchen;

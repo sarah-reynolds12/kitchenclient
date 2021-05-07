@@ -1,6 +1,6 @@
 import * as React from 'react';
-//import {Container, Row, Column} from "reactstrap";
-//import FoodItem from "./FoodItem";
+import {Container, Row, Col} from "reactstrap";
+import FoodItem from "./FoodItem";
 
 export interface FoodIndexProps {
     token: string
@@ -17,9 +17,17 @@ class FoodIndex extends React.Component<FoodIndexProps, FoodIndexState> {
     }
     render() { 
         return ( 
-            <div>
+            <Container>
+                <Row>
+                    <Col md= "3">
+                        {/* <FoodItem fetchFood={fetchFood} token= {this.props.token} /> */}
+                    </Col>
+                    <Col md= "9">
+                        <h2>INDEX</h2>
+                    </Col>
+                </Row>
                 INDEX
-            </div>
+            </Container>
          );
     }
 }

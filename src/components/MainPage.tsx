@@ -2,8 +2,9 @@ import * as React from 'react';
 //import Navbar from "./Navbar";
 import FoodItem from "./cards/FoodItem";
 //import Kitchenbuild from "./cards/Kitchenbuild";
-import KitchenPage from "./KitchenPage";
-import Kitchen from "./kitchenareas/Kitchen"
+//import KitchenPage from "./KitchenPage";
+//import Kitchen from "./kitchenareas/Kitchen"
+import Category from "./kitchenareas/Categories";
 
 export interface MainPageProps {
     token : string
@@ -22,9 +23,9 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
 
     roleSwitch = () => {
         if (localStorage.getItem('role') === "shopper" ) {
-            return <KitchenPage token = {this.props.token} />
+            return <FoodItem token = {this.props.token} />
         } else if (localStorage.getItem('role') === "householdmember") {
-            return  <FoodItem token = {this.props.token} />
+            return  <Category token = {this.props.token} />
         } 
     }
 

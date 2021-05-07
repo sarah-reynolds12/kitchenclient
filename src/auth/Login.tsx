@@ -8,6 +8,7 @@ interface LoginProps {
    name?: any;
    value?: any;
    updateToken: Function;
+  
 }
 interface LoginState {
    email : string,
@@ -107,7 +108,7 @@ export class Login extends React.Component <LoginProps, LoginState> {
                        <input type='role' name='role' onChange={this.handleChange}/>
                     </div>               */}
                     <div className='submit'>
-                       <button>Log In</button>
+                       <button type= 'submit'>Log In</button>
                     </div>
                </form>
            </div>

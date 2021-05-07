@@ -92,6 +92,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
          this.setState({foodcategory: ""});
          this.setState({brandname: ""});
          this.setState({kitchenarea: ""});
+        //  this.props.fetchWorkouts()
             console.log(data);
         })
     }else {
