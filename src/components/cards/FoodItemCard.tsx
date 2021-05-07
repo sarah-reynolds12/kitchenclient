@@ -16,6 +16,7 @@ import {
 export interface FoodItemCardProps {
    token: string; 
     food: IFood;
+    fetchFood: Function;
 }
 
 // export interface FoodItemCardState {
@@ -24,19 +25,19 @@ export interface FoodItemCardProps {
  
  
 const FoodItemCard: React.SFC<FoodItemCardProps> = (props) => {
-//    const deleteFood = (food) => {
-//     fetch(`http://localhost:3000/fooditem/delete/${food.id}`, {
-//             method: "DELETE",
-//             headers: new Headers ({
-//              'Content-Type': 'application/json',
-//                Authorization: props.token,
-//            //    Authorization: token ? token : ''
-//          })
-//         }).then(() => props.fetchFood()) 
-//           .then((response) => response.json()).then((data) => {
-//            this.setState({edit: ''});
-//        })
-//     }
+   const deleteFood = () => {
+    fetch(`http://localhost:3000/fooditem/delete/${props.food.id}`, {
+            method: "DELETE",
+            headers: new Headers ({
+             'Content-Type': 'application/json',
+               Authorization: props.token,
+           //    Authorization: token ? token : ''
+         })
+        })
+         //.then((response) => response.json()).then((data) => {
+        .then(() => props.fetchFood()) 
+      }
+    
     
         return ( 
             <div>
@@ -48,8 +49,8 @@ const FoodItemCard: React.SFC<FoodItemCardProps> = (props) => {
               <CardSubtitle> How much is left: {props.food.itemamount} <br />
               {props.food.foodcategory}</CardSubtitle>
               <Button color ="warning"> Update </Button>
-              {/* <Button color ="danger" onClick= {() => {deleteFood(food)}}> Delete </Button> */}
-              <Button color = "danger"> Delete</Button>
+              <Button color ="danger" onClick= {() => {deleteFood()}}> Delete </Button>
+              {/* <Button color = "danger"> Delete</Button> */}
           </CardBody>
       </Card>
                 

@@ -71,30 +71,29 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
                   <NavItem>
                     <Link to= "/food/frozen"><NavLink>Frozen</NavLink></Link>
                   </NavItem>
-                  <UncontrolledDropdown nav inNavbar>
+                  {/* <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Item Amounts
+                      Food Categories
                     </DropdownToggle>
-                    <DropdownMenu right>
+                     <DropdownMenu right>
                       <DropdownItem>
-                      <NavLink to="/fooditem/:full">Full</NavLink>
+                     <Link to= "/food/frozen"><NavLink>Frozen</NavLink></Link>
                       </DropdownItem>
                       <DropdownItem>
-                      <NavLink to="/fooditem/:half">Half</NavLink>
+                      <Link to= "/food/dairy"><NavLink>Dairy</NavLink></Link>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
                       <NavLink to="/fooditem/:replace">Replace</NavLink>
                       </DropdownItem>
                     </DropdownMenu>
-                  </UncontrolledDropdown>
+                  </UncontrolledDropdown> */} 
                 </Nav>
                 <NavbarText>
-                <NavLink to="/kitchen/get">Account</NavLink>
+               <Link to="/food/replace"><NavLink>Grocery List</NavLink></Link>
                 </NavbarText>
                 <NavItem>
-                    <Button>  Logout
-                    </Button>
+                    <Button> Logout  </Button>
                     {/* onClick={this.props.onClick} */}
                     </NavItem>
               {/* </Collapse> */}

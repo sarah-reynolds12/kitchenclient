@@ -18,6 +18,10 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
         this.state = { allFoodData: [] };
     }
     componentDidMount = () => {
+        this.fetchFood()
+    }
+    
+    fetchFood = () => {
         let token = this.props.token ? this.props.token : localStorage.getItem("token")
        // const fetchFood = () => {
     fetch(`http://localhost:3000/fooditem/get`, {
@@ -33,17 +37,14 @@ class Kitchen extends React.Component<KitchenProps, KitchenState> {
               this.setState({allFoodData: data});
               //console.log(this.kitchendata);
           });
-
+        
 }
 
-// Kitchen.useEffect(() => {
-//     fetchFood();
-// }, [])
 
     render() { 
         return ( 
        <CardColumns>
-           {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index}/>))) : (<></>)
+           {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index} fetchFood={this.fetchFood}/>))) : (<></>)
            }
        </CardColumns>
         );
