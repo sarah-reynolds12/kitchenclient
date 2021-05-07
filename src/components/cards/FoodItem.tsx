@@ -2,7 +2,6 @@ import React from 'react';
 import './FoodItem.css';
 
 export interface FoodItemProps {
-    //updateToken: Function;
     token: string
 }
  
@@ -11,14 +10,12 @@ export interface FoodItemState {
     itemamount: string, 
     foodcategory: string, 
     brandname: string, 
-    //photo: string,
     kitchenarea: string,
     errors: {
         fooditem: string, 
         itemamount: string, 
         foodcategory: string,
         brandname: string,
-        //photo: string,
         kitchenarea: string,
     }
 }
@@ -95,9 +92,6 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
          this.setState({foodcategory: ""});
          this.setState({brandname: ""});
          this.setState({kitchenarea: ""});
-
-           // this.props.updateToken(data.sessionToken)
-           // console.log(data.sessionToken);
             console.log(data);
         })
     }else {
@@ -149,7 +143,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                     <option value='frozen'>Frozen</option>
                  </select>
               </div>             
-              <div className='kitchenarea'>
+              {/* <div className='kitchenarea'>
                  <label htmlFor="kitchenarea">Where does it go: </label> 
                  <select id="kitchenarea" onChange={(e) => this.setState({kitchenarea: e.target.value})}
 >
@@ -160,7 +154,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                     <option value="spices">Spices</option>
                  </select>
                 
-              </div>              
+              </div>               */}
               <div className='submit'>
                  <button >Create Food for Kitchen</button>
               </div>

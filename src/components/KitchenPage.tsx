@@ -3,7 +3,7 @@ import * as React from 'react';
 import Kitchenbuild from "./cards/Kitchenbuild";
 import FoodItem from "./cards/FoodItem";
 import { IKitchen } from "./UI/Interface"
-import Kitchen from "./kitchenareas/Kitchen"
+//import Kitchen from "./kitchenareas/Kitchen"
 
 export interface KitchenPageProps {
     token: string
@@ -44,7 +44,7 @@ class KitchenPage extends React.Component<KitchenPageProps, KitchenPageState> {
         return (
             <div>
                 
-            {this.state.kitchendata === null ? (<Kitchenbuild token = {this.props.token} />) : (<Kitchen token = {this.props.token} />)}
+            {this.state.kitchendata === null ? (<Kitchenbuild token = {this.props.token} />) : (<FoodItem token = {this.props.token} />)}
                                 
                 Kitchen Page
                 

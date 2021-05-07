@@ -3,8 +3,8 @@ import { IFood } from "./FoodItemInterface"
 
 import {
     Card,
-    // CardImg,
-    // CardText,
+    //CardImg,
+    //CardText,
     CardBody,
     CardTitle,
     CardSubtitle,
@@ -19,25 +19,36 @@ export interface FoodItemCardProps {
  
  
 const FoodItemCard: React.SFC<FoodItemCardProps> = (props) => {
+//    const deleteFood = (food) => {
+//     fetch(`http://localhost:3000/fooditem/delete/:id`, {
+//             method: "DELETE",
+//             headers: new Headers ({
+//              'Content-Type': 'application/json',
+//                 Authorization: props.token
+//                // Authorization: token ? token : ''
+//          })
+//         }).then(() => props.fetchFood()) 
+//        // .then((response) => response.json()).then((data) => {
+//           //  this.setState({edit: ''});
+//        // })
+//     }
     
         return ( 
             <div>
-                {/* <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-        <CardTitle tag="h5">Special Title Treatment</CardTitle>
-        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        <Button>Button</Button>
-      </Card> */}
-
       <Card>
           <CardBody>
-              {props.food.fooditem}
-              <CardTitle> {props.food.brandname}</CardTitle>
-              <CardSubtitle>{props.food.itemamount}</CardSubtitle>
-              <Button> Button </Button>
+              {props.food.fooditem} : {props.food.brandname} 
+              <br /><br />
+              {/* <CardTitle> {props.food.brandname}</CardTitle> */}
+              <CardSubtitle> How much is left: {props.food.itemamount} <br />
+              {props.food.foodcategory}</CardSubtitle>
+              <Button color ="warning"> Update </Button>
+              {/* <Button color ="danger" onClick= {() => {deleteFood(food)}}> Delete </Button> */}
+              <Button color = "danger"> Delete</Button>
           </CardBody>
       </Card>
                 
-                Food Item Card</div>
+               </div>
          );
     }
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Navbar from "./Navbar";
+//import Navbar from "./Navbar";
 import FoodItem from "./cards/FoodItem";
 //import Kitchenbuild from "./cards/Kitchenbuild";
 import KitchenPage from "./KitchenPage";
@@ -24,14 +24,14 @@ class MainPage extends React.Component<MainPageProps, MainPageState> {
         if (localStorage.getItem('role') === "shopper" ) {
             return <KitchenPage token = {this.props.token} />
         } else if (localStorage.getItem('role') === "householdmember") {
-            return  <Kitchen token = {this.props.token} />
+            return  <FoodItem token = {this.props.token} />
         } 
     }
 
     render() { 
         return ( 
             <div>
-                <Navbar token = {this.props.token} />
+               
                 {this.roleSwitch()}
                 {/* <FoodItem token = {this.props.token} />
                 <Kitchenbuild token = {this.props.token} /> */}

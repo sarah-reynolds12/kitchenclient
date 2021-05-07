@@ -15,6 +15,7 @@ export interface IFood {
     foodcategory: string;
     fooditem: string;
     itemamount: string;
+    kitchenarea: string;
     kitchenId: number;
     updatedAt: Date;
     user: IUser;

@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 //import { Row } from "reactstrap";
 import  Auth  from "./auth/Auth";
-// import FoodItem from "./components/cards/FoodItem";
-// import Kitchenbuild from "./components/cards/Kitchenbuild";
+import FoodItem from "./components/cards/FoodItem";
+import Kitchenbuild from "./components/cards/Kitchenbuild";
 import MainPage from "./components/MainPage";
-//import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Kitchen from "./components/kitchenareas/Kitchen";
 //import FoodItemCard from "./components/cards/FoodItemCard";
+import Category from "./components/kitchenareas/Categories";
+import Navbar from "./components/Navbar";
 
 export interface AppProps {
   
@@ -77,17 +79,18 @@ protectedViews = () => {
  render() {
    return (
      <div>
-       {this.protectedViews()}
-       <Kitchen token = {this.state.token} />
-       {/* <FoodItemCard /> */}
-       {/* <Switch>
+     
+       <Navbar token = {this.state.token} />
+       <Switch>
          <Route exact path = "/">
            {this.protectedViews()}
           
          </Route>
          <Route exact path ="/kitchen" >{this.state.token ? <Kitchenbuild token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
-         <Route exact path ="/fooditem">{this.state.token ? <FoodItem token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
-    </Switch> */}
+         <Route exact path ="/fooditem/create">{this.state.token ? <FoodItem token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
+         <Route exact path ="/fooditem/">{this.state.token ? <Kitchen token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
+         <Route exact path ="/food/:category">{this.state.token ? <Category token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
+    </Switch>
      </div>
    );
   }
