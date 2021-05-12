@@ -89,9 +89,9 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
                     </DropdownMenu>
                   </UncontrolledDropdown> */} 
                 </Nav>
-                <NavbarText>
+                <NavItem>
                <Link to="/food/replace"><NavLink>Grocery List</NavLink></Link>
-                </NavbarText>
+                </NavItem>
                 <NavItem>
                     <Button> Logout  </Button>
                     {/* onClick={this.props.onClick} */}
