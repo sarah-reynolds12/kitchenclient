@@ -39,8 +39,16 @@ fetch(`http://localhost:3000/fooditem/get`, {
           this.setState({allFoodData: filteredData});
           //console.log(this.Categorydata);
       });
-
 }
+
+// editUpdateFood = (food: any) => {
+//     this.setState({foodToUpdate: food});
+//     console.log(food);
+// }
+
+
+// updateOn = () => this.setState({updateActive: true});
+// updateOff = () => this.setState({updateActive: false})
 
 
 

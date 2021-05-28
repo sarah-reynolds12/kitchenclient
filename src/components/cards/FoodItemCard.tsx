@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { IFood } from "./FoodItemInterface";
 //import Kitchen from "../kitchenareas/Kitchen";
+import FoodEdit from "./FoodEdit";
 
 import {
     Card,
@@ -47,9 +48,9 @@ const FoodItemCard: React.SFC<FoodItemCardProps> = (props) => {
               <br /><br />
               {/* <CardTitle> {props.food.brandname}</CardTitle> */}
               <CardSubtitle> How much is left: {props.food.itemamount} <br />
-              {props.food.foodcategory}</CardSubtitle>
-              <Button color ="warning"> Update </Button>
-              <Button color ="danger" onClick= {() => {deleteFood()}}> Delete </Button>
+             Category: {props.food.foodcategory}</CardSubtitle>
+             <FoodEdit fetchFood={props.fetchFood} token={props.token} food={props.food} />
+              <Button color ="warning" onClick= {() => {deleteFood()}}> Delete </Button>
               {/* <Button color = "danger"> Delete</Button> */}
           </CardBody>
       </Card>

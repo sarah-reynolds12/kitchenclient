@@ -47,7 +47,7 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
                 <NavItem>
                     <Link to="/fooditem/create"><NavLink> Add Food Item </NavLink></Link>
                   </NavItem>
-                  <NavItem>
+                  {/* <NavItem>
                     <Link to="/food/produce"><NavLink>Produce</NavLink></Link>
                   </NavItem>
                   <NavItem>
@@ -71,23 +71,59 @@ class Sitebar extends React.Component<SitebarProps, SitebarState> {
                   <NavItem>
                     <Link to= "/food/frozen"><NavLink>Frozen</NavLink></Link>
                   </NavItem>
-                  {/* <UncontrolledDropdown nav inNavbar>
+                  <NavItem>
+                    <Link to= "/food/dessert"><NavLink>Dessert</NavLink></Link>
+                  </NavItem>
+                  <NavItem>
+                    <Link to= "/food/supplies"><NavLink>Cooking Supplies</NavLink></Link>
+                  </NavItem>
+                  <NavItem>
+                    <Link to= "/food/cereal"><NavLink>Cereal</NavLink></Link>
+                  </NavItem> */}
+                  <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
                       Food Categories
                     </DropdownToggle>
                      <DropdownMenu right>
+                     <DropdownItem>
+                      <Link to= "/food/bakery"><NavLink>Bakery</NavLink></Link>
+                      </DropdownItem>
+                     <DropdownItem>
+                      <Link to= "/food/beveraves"><NavLink>Beverages</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/cereal"><NavLink>Cereal</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/condiments"><NavLink>Condiments</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/supplies"><NavLink>Cooking Supplies</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/dairy"><NavLink>Dairy</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/dessert"><NavLink>Dessert</NavLink></Link>
+                      </DropdownItem>
                       <DropdownItem>
                      <Link to= "/food/frozen"><NavLink>Frozen</NavLink></Link>
                       </DropdownItem>
                       <DropdownItem>
-                      <Link to= "/food/dairy"><NavLink>Dairy</NavLink></Link>
+                      <Link to= "/food/meat"><NavLink>Meat</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/produce"><NavLink>Produce</NavLink></Link>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <Link to= "/food/spices"><NavLink>Spices</NavLink></Link>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
                       <NavLink to="/fooditem/:replace">Replace</NavLink>
                       </DropdownItem>
                     </DropdownMenu>
-                  </UncontrolledDropdown> */} 
+                  </UncontrolledDropdown> 
                 </Nav>
                 <NavItem>
                <Link to="/food/replace"><NavLink>Grocery List</NavLink></Link>

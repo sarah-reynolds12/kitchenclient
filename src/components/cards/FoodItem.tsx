@@ -105,11 +105,11 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         const { errors } =this.state
         return ( <div className='wrapper'>
         <div className='form-wrapper'>
-           <h2>Food</h2>
+           <h2>Create Food</h2>
            <form onSubmit={this.handleSubmit} noValidate >
               <br />
               <div className='fooditem'>
-                 <label htmlFor="fooditem">What food is it?</label>
+                 <label htmlFor="fooditem">Food Item</label> <br />
                  <input type='text' name='fooditem' onChange={(e) => this.setState({fooditem: e.target.value})}/>
                  {errors.fooditem.length > 0 &&  <span style={{color: "red"}}>{errors.fooditem}</span>}
               </div>
@@ -131,7 +131,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                  </select>
               </div>
               <div className='foodcategory'>
-                 <label htmlFor="foodcategory">Food Category</label>
+                 <label htmlFor="foodcategory">Food Category: </label>
                  <select id="foodcategory" onChange={(e) => this.setState({foodcategory: e.target.value})}
 >
                     <option value="">Select</option>
@@ -142,6 +142,9 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                     <option value='condiments'>Condiments</option>
                     <option value='beverages'>Beverages</option>
                     <option value='frozen'>Frozen</option>
+                    <option value='dessert'>Dessert</option>
+                    <option value='supplies'>Cooking Supplies</option>
+                    <option value= 'cereal'>Cereal</option>
                  </select>
               </div>             
               {/* <div className='kitchenarea'>
@@ -157,7 +160,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                 
               </div>               */}
               <div className='submit'>
-                 <button >Create Food for Kitchen</button>
+                 <button >Put food in the Kitchen</button>
               </div>
          </form>
      </div>
