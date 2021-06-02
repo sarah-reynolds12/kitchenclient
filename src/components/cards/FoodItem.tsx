@@ -105,7 +105,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         const { errors } =this.state
         return ( <div className='wrapper'>
         <div className='form-wrapper'>
-           <h2>Create Food</h2>
+           <h2>Add Food to Kitchen</h2>
            <form onSubmit={this.handleSubmit} noValidate >
               <br />
               <div className='fooditem'>
@@ -135,16 +135,19 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                  <select id="foodcategory" onChange={(e) => this.setState({foodcategory: e.target.value})}
 >
                     <option value="">Select</option>
-                    <option value="meat">Meat</option>
-                    <option value="dairy">Dairy</option>
-                    <option value='produce'>Produce</option>
                     <option value='bakery'>Bakery</option>
-                    <option value='condiments'>Condiments</option>
                     <option value='beverages'>Beverages</option>
-                    <option value='frozen'>Frozen</option>
-                    <option value='dessert'>Dessert</option>
-                    <option value='supplies'>Cooking Supplies</option>
                     <option value= 'cereal'>Cereal</option>
+                    <option value='condiments'>Condiments</option>
+                    <option value='supplies'>Cooking Supplies</option>
+                    <option value="dairy">Dairy</option>
+                    <option value='dessert'>Dessert</option>
+                    <option value='frozen'>Frozen</option>
+                    <option value="meat">Meat</option>
+                    <option value='pasta'>Pasta</option>
+                    <option value='produce'>Produce</option>
+                    <option value='spices'>Spices</option>
+                    <option value='other'>Other</option>
                  </select>
               </div>             
               {/* <div className='kitchenarea'>
@@ -160,7 +163,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                 
               </div>               */}
               <div className='submit'>
-                 <button >Put food in the Kitchen</button>
+                 <button >Create</button>
               </div>
          </form>
      </div>

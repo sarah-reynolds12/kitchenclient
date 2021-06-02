@@ -3,13 +3,15 @@ import './App.css';
 //import { Row } from "reactstrap";
 import  Auth  from "./auth/Auth";
 import FoodItem from "./components/cards/FoodItem";
-import Kitchenbuild from "./components/cards/Kitchenbuild";
+//import Kitchenbuild from "./components/cards/Kitchenbuild";
 import MainPage from "./components/MainPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Kitchen from "./components/kitchenareas/Kitchen";
 //import FoodItemCard from "./components/cards/FoodItemCard";
 import Category from "./components/kitchenareas/Categories";
 import Navbar from "./components/Navbar";
+import Grocery from "./components/kitchenareas/GroceryList";
+import FoodIndex from "./components/cards/FoodIndex";
 
 export interface AppProps {
 //onClick: () => void, 
@@ -84,17 +86,18 @@ clearToken = () => {
  render() {
    return (
      <div>
-     {/* need clickLogout? */}
-       <Navbar token = {this.state.token} />
+      <Navbar token = {this.state.token} />
        <Switch>
          <Route exact path = "/">
            {this.protectedViews()}
           
          </Route>
-         <Route exact path ="/kitchen" >{this.state.token ? <Kitchenbuild token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
+         {/* <Route exact path ="/kitchen" >{this.state.token ? <Kitchenbuild token = {this.state.token}/> : <Redirect to = "/"/>}</Route> */}
          <Route exact path ="/fooditem/create">{this.state.token ? <FoodItem token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
          <Route exact path ="/fooditem/">{this.state.token ? <Kitchen token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
          <Route exact path ="/food/:category">{this.state.token ? <Category token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
+         <Route exact path ="/fooditem/:itemamount">{this.state.token ? <Grocery token ={this.state.token}/>: <Redirect to = "/"/>}</Route>
+         
     </Switch>
      </div>
    );

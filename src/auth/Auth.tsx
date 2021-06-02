@@ -18,27 +18,20 @@ class Auth extends React.Component<AuthProps, AuthState> {
         this.state = { showLogin : true };
     }
 
-    // handleToggle = (event: MouseEvent) => {
-    //     if(this.state.showLogin === false) {
-    //         return this.setState({showLogin: true});
-    //     }
-    //     if (this.state.showLogin === true) {
-    //         return this.setState({showLogin: false})
-    //     }
-    // };
+    handleToggle = (event: any) => {
+       event.preventDefault();
+       this.setState({showLogin: !this.state.showLogin})
+    };
 
     render() { 
         return (
             <div>
-                {/* {this.state.showLogin ? ( 
-     <SignUp 
-     updateToken = {this.props.updateToken} 
-     handleToggle={this.handleToggle} />) : (
-     <Login 
-     updateToken = {this.props.updateToken} 
-     handleToggle = {this.handleToggle}/> )} */}
-     <SignUp updateToken ={this.props.updateToken} />
-     <Login updateToken={this.props.updateToken} />
+                {this.state.showLogin ? ( <SignUp updateToken ={this.props.updateToken} />) : (<Login updateToken={this.props.updateToken} />)}
+     {/* <SignUp updateToken ={this.props.updateToken} />
+     <Login updateToken={this.props.updateToken} /> */}
+     <div>
+     {this.state.showLogin ? (<button className ="Authbutton" onClick={this.handleToggle}>Already a member? Login here.</button>) : (<button className="Authbutton" onClick={this.handleToggle}>New here? Signup!</button>)}
+     </div>
      </div>
           );
     }

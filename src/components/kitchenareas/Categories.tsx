@@ -55,7 +55,7 @@ fetch(`http://localhost:3000/fooditem/get`, {
     render() { 
         return ( 
        <CardColumns>
-           Category Page??
+           Category Page
            {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index} fetchFood={this.fetchFood}/>))) : (<></>)
            }
        </CardColumns>

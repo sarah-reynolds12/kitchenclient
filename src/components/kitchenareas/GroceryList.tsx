@@ -4,7 +4,7 @@ import {CardColumns} from "reactstrap";
 import { IFood } from "./KitchenAreaInterface";
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-export interface GroceryProps extends RouteComponentProps <{grocery:string}> {
+export interface GroceryProps extends RouteComponentProps <{grocery: string}> {
     token: string;
 }
  
@@ -45,7 +45,7 @@ class Grocery extends React.Component<GroceryProps, GroceryState> {
     render() { 
         return ( 
         <CardColumns>
-            Category Page??
+            Grocery Page
             {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index} fetchFood={this.fetchFood}/>))) : (<></>)
             }
         </CardColumns>

@@ -63,14 +63,14 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
    console.log(this.state.errors);
    }
    
-   handleSubmit = (event : any) => {
+   handleSubmit = (event : React.FormEvent) => {
       event.preventDefault();
       let validity = true;
       Object.values(this.state.errors).forEach(
         (val) => val.length > 0 && (validity = false)
       );
       if(validity === true){
-         console.log("Registered Successfully!");
+        // console.log("Registered Successfully!");
       
          fetch(`http://localhost:3000/user/create`, {
             method: 'POST',
@@ -85,9 +85,16 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
             //this.props.toggle();
             console.log(data.sessionToken);
             console.log(data);
+            let checkToken = data.sessionToken;
+            if (checkToken === undefined) {
+               alert('Please try again!');
+               return 
+            } else {
+               alert('You have successfully signed up!')
+            }
         })
         } else {
-           console.log("You cannot be registered.")
+           alert("Please check your email and password meet the criteria.")
         }
       }
 

@@ -13,10 +13,11 @@ export interface FoodEditProps {
  
 export interface FoodEditState {
     modalOpen: boolean,
-    brandname: string,
-    foodcategory: string,
-    fooditem: string,
-    itemamount: string,
+    editBrandname: string,
+    editFoodCategory: string,
+    editFoodItem: string,
+    editItemAmount: string,
+    loading: boolean,
 }
  
 class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
@@ -24,10 +25,11 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
         super(props);
         this.state = {
              modalOpen: true,
-             brandname: this.props.food.brandname,
-             foodcategory: this.props.food.foodcategory,
-             fooditem: this.props.food.fooditem,
-             itemamount: this.props.food.itemamount,
+             editBrandname: this.props.food.brandname,
+             editFoodCategory: this.props.food.foodcategory,
+             editFoodItem: this.props.food.fooditem,
+             editItemAmount: this.props.food.itemamount,
+             loading: false
             };
         }
         UpdateFood = (event:any) => {
@@ -36,7 +38,7 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
             let token = this.props.token ? this.props.token: localStorage.getItem('token')
             fetch(`http://localhost:3000/fooditem/update/${this.props.food.id}`, {
                     method: "PUT",
-                    body: JSON.stringify({food: {fooditem: this.state.fooditem, brandname: this.state.brandname, itemamount: this.state.itemamount, foodcategory: this.state.foodcategory}}),
+                    body: JSON.stringify({food: {fooditem: this.state.editFoodItem, brandname: this.state.editBrandname, itemamount: this.state.editItemAmount, foodcategory: this.state.editFoodCategory}}),
                     headers: new Headers ({
                      'Content-Type': 'application/json',
                    //    Authorization: props.token,
@@ -45,10 +47,10 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
                 })
                  .then(response => response.json()).then((updateData) => { console.log(updateData);
                 this.setState ({
-                    fooditem: '',
-                    brandname: '',
-                    itemamount: '',
-                    foodcategory: '',
+                    editFoodItem: '',
+                   editBrandname: '',
+                   editItemAmount: '',
+                    editFoodCategory: '',
                 })
                 this.props.fetchFood()
               })
@@ -66,19 +68,19 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
             <Form onSubmit={this.UpdateFood}>
                 <FormGroup>
                     <Label htmlFor="fooditem">Edit Food Item:</Label> <br />
-                 <Input name='fooditem' value={this.state.fooditem} onChange={(e) => this.setState({fooditem: e.target.value})}/>
+                 <Input name='fooditem' value={this.state.editFoodItem} onChange={(e) => this.setState({editFoodItem: e.target.value})}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="brandname">Edit Brand Name:</Label> <br />
-                 <Input name='brandname' value={this.state.brandname} onChange={(e) => this.setState({brandname: e.target.value})}/>
+                 <Input name='brandname' value={this.state.editBrandname} onChange={(e) => this.setState({editBrandname: e.target.value})}/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="itemamount">Edit Item Amount:</Label> <br />
-                 <Input name='itemamount' value={this.state.itemamount} onChange={(e) => this.setState({itemamount: e.target.value}) }/>
+                 <Input name='itemamount' value={this.state.editItemAmount} onChange={(e) => this.setState({editItemAmount: e.target.value}) }/>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="foodcategory">Edit Food Category:</Label> <br />
-                 <Input name='foodcategory' value={this.state.foodcategory} onChange={(e) => this.setState({foodcategory: e.target.value})}/>
+                 <Input name='foodcategory' value={this.state.editFoodCategory} onChange={(e) => this.setState({editFoodCategory: e.target.value})}/>
                 </FormGroup>
           <Button color="primary" onClick={this.toggle}>Update </Button>
           <Button color="secondary" onClick={this.toggle}>Cancel</Button>

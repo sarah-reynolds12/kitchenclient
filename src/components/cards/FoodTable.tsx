@@ -1,37 +1,32 @@
 import * as React from 'react';
-import { IFood } from "./FoodItemInterface"
+import { IFood } from "./FoodItemInterface";
+import {CardColumns} from "reactstrap";
+import FoodItemCard from "./FoodItemCard";
 
-import {
-    Table,
-    Button,
-  } from "reactstrap";
-  
 
 export interface FoodTableProps {
-   token: string; 
-    food: IFood;
+   token: string,
+    food: IFood[],
+    fetchFood: Function,
 }
- 
- 
-const FoodTable: React.SFC<FoodTableProps> = (props) => {
+
+export interface FoodTableState {
     
-        return ( 
-            <div>
-      {/* <Card>
-          <td>{props.food.fooditem}</td>
-              <td> {props.food.brandname}</td>
-              <td>{props.food.itemamount}</td>
-              <td> {props.food.foodcategory}</td>
-              <td>
-              <Button color = "warning"> Update </Button>
-              <Button color = "danger"> Delete </Button>
-              </td>
-          </CardBody>
-      </Card> */}
-                
-                Food Item Card</div>
-         );
+ } 
+ 
+class FoodTable extends React.Component<FoodTableProps, FoodTableState> {
+    constructor(props: FoodTableProps) {
+        super(props);
+        this.state = {};
     }
 
- 
+    render(){
+        return ( 
+            <CardColumns>
+                {/* {this.props.food.length > 0 ? (this.props.food.map(food: IFood, index: number) => (<FoodItemCard fetchFood={this.props.fetchFood} token={this.props.token} food={food} key={index}/>))) : (<></>)} */}
+            </CardColumns>
+         );
+    }
+}
+
 export default FoodTable;
