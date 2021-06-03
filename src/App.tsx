@@ -96,7 +96,7 @@ clearToken = () => {
          <Route exact path ="/fooditem/create">{this.state.token ? <FoodItem token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
          <Route exact path ="/fooditem/">{this.state.token ? <Kitchen token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
          <Route exact path ="/food/:category">{this.state.token ? <Category token = {this.state.token}/> : <Redirect to = "/"/>}</Route>
-         <Route exact path ="/fooditem/:itemamount">{this.state.token ? <Grocery token ={this.state.token}/>: <Redirect to = "/"/>}</Route>
+         <Route exact path ="/grocerylist/:itemamount">{this.state.token ? <Grocery token ={this.state.token}/>: <Redirect to = "/"/>}</Route>
          
     </Switch>
      </div>

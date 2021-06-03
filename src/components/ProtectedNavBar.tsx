@@ -23,7 +23,7 @@ class ProtectedNavBar extends React.Component<ProtectedNavBarProps, ProtectedNav
                     <Link to="/fooditem/create"><NavLink> Add Food Item </NavLink></Link>
                   </NavItem>
                   <NavItem>
-               <Link to="/food/replace"><NavLink>Grocery List</NavLink></Link>
+               <Link to="/grocerylist/:itemamount"><NavLink>Grocery List</NavLink></Link>
                 </NavItem> 
                 </Nav>         
             </div>

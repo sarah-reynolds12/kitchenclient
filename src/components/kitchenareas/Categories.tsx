@@ -37,6 +37,7 @@ fetch(`http://localhost:3000/fooditem/get`, {
           console.log(data)
           const filteredData = data.filter(food => food.foodcategory.toLowerCase() === category)
           this.setState({allFoodData: filteredData});
+          console.log(this.state.allFoodData)
           //console.log(this.Categorydata);
       });
 }
@@ -55,7 +56,6 @@ fetch(`http://localhost:3000/fooditem/get`, {
     render() { 
         return ( 
        <CardColumns>
-           Category Page
            {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index} fetchFood={this.fetchFood}/>))) : (<></>)
            }
        </CardColumns>

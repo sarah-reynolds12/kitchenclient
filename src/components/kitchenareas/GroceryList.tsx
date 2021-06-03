@@ -23,7 +23,8 @@ class Grocery extends React.Component<GroceryProps, GroceryState> {
         }
         
         fetchFood = () => {
-            const grocery = this.props.match.params.grocery
+            const grocery = "replace"
+            console.log(grocery)
         let token = this.props.token ? this.props.token : localStorage.getItem("token")
     fetch(`http://localhost:3000/fooditem/get`, {
           method: 'GET',
@@ -45,7 +46,6 @@ class Grocery extends React.Component<GroceryProps, GroceryState> {
     render() { 
         return ( 
         <CardColumns>
-            Grocery Page
             {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index} fetchFood={this.fetchFood}/>))) : (<></>)
             }
         </CardColumns>

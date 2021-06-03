@@ -33,12 +33,13 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
             };
         }
         UpdateFood = (event:any) => {
-            event.preventdDefault();
+            event.preventDefault();
+            console.log("Click")
             console.log(this.props.food)
             let token = this.props.token ? this.props.token: localStorage.getItem('token')
             fetch(`http://localhost:3000/fooditem/update/${this.props.food.id}`, {
                     method: "PUT",
-                    body: JSON.stringify({food: {fooditem: this.state.editFoodItem, brandname: this.state.editBrandname, itemamount: this.state.editItemAmount, foodcategory: this.state.editFoodCategory}}),
+                    body: JSON.stringify({fooditem: this.state.editFoodItem, brandname: this.state.editBrandname, itemamount: this.state.editItemAmount, foodcategory: this.state.editFoodCategory}),
                     headers: new Headers ({
                      'Content-Type': 'application/json',
                    //    Authorization: props.token,
@@ -53,7 +54,9 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
                     editFoodCategory: '',
                 })
                 this.props.fetchFood()
+                this.toggle()
               })
+
     }
 
     toggle = () => this.setState({modalOpen:!this.state.modalOpen});
@@ -76,13 +79,31 @@ class FoodEdit extends React.Component<FoodEditProps, FoodEditState> {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="itemamount">Edit Item Amount:</Label> <br />
-                 <Input name='itemamount' value={this.state.editItemAmount} onChange={(e) => this.setState({editItemAmount: e.target.value}) }/>
+                 <Input type="select" name='itemamount' value={this.state.editItemAmount} onChange={(e) => this.setState({editItemAmount: e.target.value}) }> 
+                    <option value="full">Full</option>
+                    <option value="half">Half</option>
+                    <option value ="replace">Replace</option>
+                 </Input>
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="foodcategory">Edit Food Category:</Label> <br />
-                 <Input name='foodcategory' value={this.state.editFoodCategory} onChange={(e) => this.setState({editFoodCategory: e.target.value})}/>
+                 <Input type="select" name='foodcategory' value={this.state.editFoodCategory} onChange={(e) => this.setState({editFoodCategory: e.target.value})}>
+                 <option value='bakery'>Bakery</option>
+                    <option value='beverages'>Beverages</option>
+                    <option value= 'cereal'>Cereal</option>
+                    <option value='condiments'>Condiments</option>
+                    <option value='supplies'>Cooking Supplies</option>
+                    <option value="dairy">Dairy</option>
+                    <option value='dessert'>Dessert</option>
+                    <option value='frozen'>Frozen</option>
+                    <option value="meat">Meat</option>
+                    <option value='pasta'>Pasta</option>
+                    <option value='produce'>Produce</option>
+                    <option value='spices'>Spices</option>
+                    <option value='other'>Other</option>
+                 </Input>
                 </FormGroup>
-          <Button color="primary" onClick={this.toggle}>Update </Button>
+          <Button type="submit"color="primary">Update </Button>
           <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </Form>
         </ModalBody>
