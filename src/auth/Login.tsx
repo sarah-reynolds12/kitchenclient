@@ -85,7 +85,7 @@ export class Login extends React.Component <LoginProps, LoginState> {
       const {errors} = this.state
         return (
             <div className='wrapper'>
-              <div className='form-wrapper'>
+              <div className='form-wrapper-login'>
                  <h2>Log In</h2>
                  <form onSubmit={this.handleSubmit} noValidate >
                     {/* <div className='userName'>
@@ -108,7 +108,7 @@ export class Login extends React.Component <LoginProps, LoginState> {
                        <input type='role' name='role' onChange={this.handleChange}/>
                     </div>               */}
                     <div className='submit'>
-                       <button type= 'submit'>Log In</button>
+                       <button className= 'loginbtn' type= 'submit'>Log In</button>
                     </div>
                </form>
            </div>

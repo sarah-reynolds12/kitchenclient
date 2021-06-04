@@ -3,6 +3,7 @@ import FoodItemCard from "../cards/FoodItemCard";
 import {CardColumns} from "reactstrap";
 import { IFood } from "./KitchenAreaInterface";
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import '../cards/FoodCard.css'
 
 export interface CategoryProps extends RouteComponentProps <{category:string}> {
     token: string;
@@ -55,10 +56,12 @@ fetch(`http://localhost:3000/fooditem/get`, {
 
     render() { 
         return ( 
-       <CardColumns>
+             
+       <CardColumns >
            {this.state.allFoodData.length > 0 ? (this.state.allFoodData.map((food: IFood, index: number) => (<FoodItemCard token= {this.props.token} food= {food} key={index} fetchFood={this.fetchFood}/>))) : (<></>)
            }
        </CardColumns>
+      
         );
     }
 }

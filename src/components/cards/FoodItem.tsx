@@ -105,16 +105,15 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
         const { errors } =this.state
         return ( <div className='wrapper'>
         <div className='form-wrapper'>
-           <h2>Add Food to Kitchen</h2>
+           <h2>Create Food</h2>
            <form onSubmit={this.handleSubmit} noValidate >
               <br />
               <div className='fooditem'>
-                 <label htmlFor="fooditem">Food Item</label> <br />
+                 <label htmlFor="fooditem">Food Item</label> 
                  <input type='text' name='fooditem' onChange={(e) => this.setState({fooditem: e.target.value})}/>
                  {errors.fooditem.length > 0 &&  <span style={{color: "red"}}>{errors.fooditem}</span>}
               </div>
-              <br />
-              <div className='brandname'>
+                            <div className='brandname'>
                  <label htmlFor="brandname">Brand Name</label>
                  <input type='text' name='brandname' onChange={(e) => this.setState({brandname: e.target.value})}
 />
@@ -125,9 +124,9 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                  <select id="itemamount" onChange={(e) => this.setState({itemamount: e.target.value})}
 >
                     <option value="">Select</option>
-                    <option value="full">Full</option>
-                    <option value="half">Half</option>
-                    <option value ="replace">Replace</option>
+                    <option value="Full">Full</option>
+                    <option value="Half">Half</option>
+                    <option value ="Replace">Replace</option>
                  </select>
               </div>
               <div className='foodcategory'>
@@ -163,7 +162,7 @@ class FoodItem extends React.Component<FoodItemProps, FoodItemState> {
                 
               </div>               */}
               <div className='submit'>
-                 <button >Create</button>
+                 <button className="foodbtn" >Add to Kitchen</button>
               </div>
          </form>
      </div>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IFood } from "./FoodItemInterface";
 //import Kitchen from "../kitchenareas/Kitchen";
 import FoodEdit from "./FoodEdit";
+import './FoodCard.css'
 
 import {
     Card,
@@ -11,6 +12,9 @@ import {
     CardTitle,
     CardSubtitle,
     Button,
+    CardText,
+    ButtonGroup,
+    CardColumns,
   } from "reactstrap";
   
 
@@ -42,18 +46,24 @@ const FoodItemCard: React.SFC<FoodItemCardProps> = (props) => {
     
         return ( 
             <div>
-      <Card> 
-          <CardBody>
-              {props.food.fooditem} : {props.food.brandname} 
-              <br /><br />
-              {/* <CardTitle> {props.food.brandname}</CardTitle> */}
-              <CardSubtitle> How much is left: {props.food.itemamount} <br />
-             Category: {props.food.foodcategory}</CardSubtitle>
-             <FoodEdit fetchFood={props.fetchFood} token={props.token} food={props.food} />
-              <Button color ="warning" onClick= {() => {deleteFood()}}> Delete </Button>
-              {/* <Button color = "danger"> Delete</Button> */}
+              <CardColumns>
+      <Card style={{width: '13rem'}}> 
+          <CardBody >
+            <CardTitle>{props.food.fooditem} : {props.food.brandname} </CardTitle>  
+           
+              <CardSubtitle> {props.food.itemamount} </CardSubtitle> 
+            <CardText> 
+            <small className="text-muted">Category: {props.food.foodcategory} </small>
+            </CardText>
+           
+
+     <FoodEdit fetchFood={props.fetchFood} token={props.token} food={props.food} />
+              <Button className='deletebtn' onClick= {() => {deleteFood()}}> Delete </Button>
+
+                    
           </CardBody>
       </Card>
+      </CardColumns>
                 
                </div>
          );

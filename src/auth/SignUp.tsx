@@ -132,7 +132,7 @@ export class SignUp extends React.Component <SignUpProps, SignUpState> {
                        {/* {errors.role.length > 0 && <span style} */}
                     </div>              
                     <div className='submit'>
-                       <button>Sign Up</button>
+                       <button className='signupbtn'>Sign Up</button>
                     </div>
                </form>
            </div>

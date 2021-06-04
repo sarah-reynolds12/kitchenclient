@@ -9,7 +9,8 @@ p, div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(96, 99, 97);
+    background-color: rgb(96, 99, 97); 
+  
   }
   
   .form-wrapper {
@@ -19,7 +20,7 @@ p, div {
     max-width: 80%;
     min-width: 100px;
     min-height: 400px;
-    padding: 20px 40px;
+    padding: 10px 50px;
     border-radius: 6px;
     box-shadow: 0px 8px 36px #222;
     background-color: #fefefe;
@@ -66,20 +67,23 @@ p, div {
     margin-right: 0.25em;
     margin-top: 0.5em;
     padding:  0.938em;
-    border: none;
-    border-radius: 10px;
+    border: 1px solid rgb(14, 167, 52);
+    border-radius: 5px;
     background-color: rgb(14, 167, 52);
     color: #fefefe;
     font-weight: bolder;
+    padding: 10px 10px;
+   
   }
   button:hover {
     background-color: rgb(11, 133, 19);
     color: #fefefe;
   }
    
-  .username,
-  .email,
-  .password {
+  .fooditem,
+  .brandname,
+  .itemamount,
+  .foodcategory {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
@@ -91,3 +95,11 @@ p, div {
     display: flex;
     flex-wrap: wrap;
   }
+
+  .foodbtn {
+    min-width: 50%;
+    border-radius: 50px;
+    margin-left: 65px;
+  }
+  
+ 

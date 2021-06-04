@@ -85,8 +85,9 @@ clearToken = () => {
 
  render() {
    return (
-     <div>
-      <Navbar token = {this.state.token} />
+     <div className='mainpg'>
+      <Navbar token = {this.state.token} /> 
+      <br />   
        <Switch>
          <Route exact path = "/">
            {this.protectedViews()}

@@ -1,0 +1,36 @@
+
+  Button.editbtn {
+    min-width: 50%;
+    background-color: rgb(28, 66, 179);
+    margin-right: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    
+  }
+
+  .card-columns {
+    column-count: 5;
+       
+  }
+
+    Button.deletebtn {
+      color: white;
+      background-color: rgb(173, 15, 15);
+      min-width: 50%;
+      margin-right: 10px;
+    border-radius: 10px;
+  }
+  
+  .updatebtn{
+    min-width: 50%;
+    
+  }
+  Button.cancelbtn{
+    min-width: 50%;
+    background-color: black;
+    color: white
+  }
+
+ .modal {
+    width: 350px
+  }

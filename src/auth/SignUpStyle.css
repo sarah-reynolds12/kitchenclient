@@ -19,7 +19,7 @@ p, div {
     max-width: 80%;
     min-width: 100px;
     min-height: 400px;
-    padding: 20px 40px;
+    padding: 10px 40px;
     border-radius: 6px;
     box-shadow: 0px 8px 36px #222;
     background-color: #fefefe;
@@ -54,6 +54,13 @@ p, div {
     border: 1px solid #d6d1d5;
   }
   
+  option {
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #d6d1d5;
+  }
+  
   input::placeholder {
     font-size: 1.2em;
     font-weight: lighter;
@@ -67,7 +74,7 @@ p, div {
     margin-top: 0.5em;
     padding:  0.938em;
     border: none;
-    border-radius: 10px;
+    border-radius: 100px;
     background-color: rgb(14, 167, 52);
     color: #fefefe;
     font-weight: bolder;
@@ -79,10 +86,11 @@ p, div {
    
   .username,
   .email,
-  .password {
+  .password,
+  .role {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     width: 100%;
   }
    
@@ -90,4 +98,38 @@ p, div {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .loginbtn {
+    min-width: 50%;
+    border-radius: 50px;
+    margin-left: 65px;
+  }
+
+  .signupbtn {
+    min-width: 50%;
+    border-radius: 50px;
+    margin-left: 65px;
+  }
+
+  .form-wrapper-login {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    max-width: 80%;
+    min-width: 100px;
+    min-height: 200px;
+    padding: 10px 40px;
+    border-radius: 6px;
+    box-shadow: 0px 8px 36px #222;
+    background-color: #fefefe;
+  }
+  .form-wrapper-login > h2 {
+    display: flex;
+    justify-content: center;
+    font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0.25em;
+    color: #222;
   }
